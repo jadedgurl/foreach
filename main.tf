@@ -8,13 +8,6 @@ provider "aws" {
 
 data "aws_availability_zones" "all" {}
 
-resource "aws_autoscaling_group" "example" {
-  launch_configuration = aws_launch_configuration.example.id
-  availability_zones   = data.aws_availability_zones.all.names
-
-  min_size = 2
-  max_size = 2
-
   # Use for_each to loop over var.custom_tags
   dynamic "tag" {
     for_each = var.custom_tags
