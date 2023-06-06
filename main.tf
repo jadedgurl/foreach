@@ -9,15 +9,13 @@ provider "aws" {
 data "aws_availability_zones" "all" {}
 
   # Use for_each to loop over var.custom_tags
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket"
     for_each = var.custom_tags
      tags = {
     Name        = "My bucket"
     Environment = "Dev"
     }
-  }
-
-resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-test-bucket"
   }
 }
 
