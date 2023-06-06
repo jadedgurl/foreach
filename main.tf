@@ -26,7 +26,6 @@ resource "aws_autoscaling_group" "example" {
   }
 }
 
-
 resource "aws_s3_bucket" "example" {
   bucket = "my-tf-test-bucket"
 
@@ -35,4 +34,4 @@ resource "aws_s3_bucket" "example" {
     Environment = "Dev"
   }
 }
-  }
+
